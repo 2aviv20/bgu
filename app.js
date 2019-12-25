@@ -3,7 +3,7 @@ const scraper = require("./scraper");
 const bodyParser = require('body-parser')
 
 const app = express()
-const port = process.env.port | 3000;
+const port = process.env.PORT || 3000;
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }))
