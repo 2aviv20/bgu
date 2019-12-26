@@ -11,10 +11,14 @@ app.use(bodyParser.urlencoded({ extended: false }))
 // parse application/json
 app.use(bodyParser.json())
 
+app.get('/wakeup', async (req, res) => {
+    res.status(200).send(`BGU VIDEO SCRAPER app listening on port ${port}!`);
+})
+
 app.post('/scrape/course', async (req, res) => {
     const code = req.body.code;
     const urls = await scraper.start(code);
-    res.status(200).json({urls});
+    res.status(200).json(urls);
 })
 
 app.listen(port, () => console.log(`BGU VIDEO SCRAPER app listening on port ${port}!`))
