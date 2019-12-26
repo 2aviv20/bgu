@@ -14,7 +14,7 @@ app.use(bodyParser.json())
 app.post('/scrape/course', async (req, res) => {
     const code = req.body.code;
     const urls = await scraper.start(code);
-    res.status(200).json(urls);
+    res.status(200).json({urls});
 })
 
 app.listen(port, () => console.log(`BGU VIDEO SCRAPER app listening on port ${port}!`))
