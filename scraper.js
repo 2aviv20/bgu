@@ -4,7 +4,7 @@ var request = require("request-promise");
 
 module.exports = {
   start: async function (courseCode) {
-    const browser = await puppeteer.launch({ args: ['--no-sandbox'], headless: false });
+    const browser = await puppeteer.launch({ args: ['--no-sandbox'], headless: true });
     const page = await browser.newPage();
     //login
     await this.login(page);
