@@ -1,5 +1,7 @@
 const express = require('express');
 const scraper = require("./scraper");
+const queue = require("./queue");
+
 const bodyParser = require('body-parser')
 
 const app = express()
@@ -22,3 +24,5 @@ app.post('/scrape/course', async (req, res) => {
 })
 
 app.listen(port, () => console.log(`BGU VIDEO SCRAPER app listening on port ${port}!`))
+//start listen to rabbitmq
+queue.queue();
